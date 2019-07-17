@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Greeting</title>
+  <link rel="stylesheet" href="greet.css">
+  <link rel="stylesheet" href="simplegrid.css">
+</head>
+
+<body>
+<div class= row>
+  <div class=col-12>
+    <h1>GREETING</h1>
+ </div>
+</div>
+<div class='row'>
+ <div class='col-12 center'> 
+   <h1> Name: <input  type="text" class="personsName" value=""></h1>
+  <input type="radio" class="lang1" name="myLang" value="isiXhosa"> isiXhosa
+    <input type="radio" class="lang2" name="myLang" value="English"> English
+    <input type="radio" class="lang3" name="myLang" value="Afrikaans"> Afrikaans
+ <br> <br> <input  type="submit" class="greetBtn" value="Greet!">
+ <input  type="submit" class="resetBtn" value="Clear!">
+</div>
+</div>
+<div class='row'>
+  <div class= 'col-12 center'>
+    <p class='msg'></p>
+    <p class='counter'>0</p>
+  </div>
+</div>    
+
+<div class='row'>
+  <div id='greeting-text' class= 'col-12'>
+    
+  </div>
+</div>
+</body>
+<script src="greet.js"></script>
+<script src="greet-dom.js"></script>
+
+</html>
