@@ -6,54 +6,62 @@ var storedNamesElem = document.querySelector("#storedNames")
 var counterElem = document.querySelector(".counter")
 var resetBtnElem = document.querySelector(".resetBtn");
 
-if(localStorage['name']){
-   var nameStore = (localStorage['name']);
-}
-else {
-    nameStore = [];
-}
+if(localStorage['name'] !== undefined){
+var nameStore = JSON.parse(localStorage['name']);
+} else {
+    nameStore = {};
+}                                                                                                                                          
+
 
 
 var message = document.querySelector('.msg');
-var instance = greetingOpp(nameStore); 
+var instance = greetingOpp(nameStore);
 
-function greetDisplayBtn(){
+counterElem.innerHTML = instance.nameCounter();
 var personsName = document.querySelector(".personsName")
-var name = personsName.value;
-var lang = document.querySelector("input[name= 'myLang']:checked");
-var language = lang.value;
+function greetDisplayBtn() {
+   
+    var name = personsName.value;
+    var Vname = name.replace(/[\W\d_]/g, '');
+    var lang = document.querySelector("input[name='myLang']:checked");
+    if(lang){
+           var language = lang.value;
+    
+           if(Vname === "" && language !== false){
+        message.innerHTML = "Please enter name!";
+    }
+    else {
+    message.innerHTML = instance.greet(Vname, language);
+    }
+    }
+    else {
+        message.innerHTML = "Please select language!";
+    }
 
-message.innerHTML = instance.greet(name, language);
-//add the new name to the list
+    //add the new name to the list
+    //pull from LS
+    //add new name
+    //push back
 
-//pull from LS
-//add new name
-//push back
-
-
-
-localStorage['name'] = JSON.stringify(instance.storedNames())
-counter();
+    localStorage['name'] = JSON.stringify(instance.storedNames())
+    counter()
 }
 
-// function countName(name){
-//     // console.log(greetedNames)
-//     instance.greetedNames.push(name);
-//     localStorage.setItem("name",JSON.stringify(instance.storedNames()));
-// }
+function resetButton() {
+    localStorage.clear();
+    message.innerHTML = "";
+    counterElem.innerHTML = ""; 
 
-function resetButton(){
-localStorage.clear();
-message.innerHTML = "";
 }
 
 
 
-function counter(){
+function counter() {
     counterElem.innerHTML = instance.nameCounter();
 }
+
 resetBtnElem.addEventListener('click', resetButton)
 greetBtnElem.addEventListener('click', greetDisplayBtn);
 
-    
+
 
