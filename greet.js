@@ -9,15 +9,18 @@ function greetingOpp(nameList) {
         }
 
         if (lang === 'isiXhosa') {
-            return 'Molo, ' + name;
+            return 'Molo, ' + name + "!";
         }
 
         else if (lang === 'English') {
-            return 'Hello, ' + name;
+            return 'Hello, ' + name + "!";
         }
 
         else if (lang === 'Afrikaans') {
-            return 'Awe, ' + name;
+            return 'Awe, ' + name + "!";
+        }
+        else {
+            return "please select language";
         }
 
     };
@@ -32,11 +35,20 @@ function greetingOpp(nameList) {
         return greetedNames;
     }
 
-    console.log(greetedNames)
+    function errorMsg(lang){
+        var errmsg = name
+        if(errmsg === "" && lang !== false){
+            return "Please enter name!";
+        }
+    }
+
+   // console.log(greetedNames)
     return {
         greet,
         storedNames,
-        nameCounter
+        nameCounter,
+        errorMsg,
+        //errorMessage
        
     }
 }

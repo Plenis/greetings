@@ -19,6 +19,7 @@ var instance = greetingOpp(nameStore);
 
 counterElem.innerHTML = instance.nameCounter();
 var personsName = document.querySelector(".personsName")
+
 function greetDisplayBtn() {
    
     var name = personsName.value;
