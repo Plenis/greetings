@@ -21,14 +21,14 @@
     it('should show error message when name is not inserted' , function(){
         let input = greetingOpp();
         input.greet('')
-        assert.equal('Please enter name!', input.errorMsg());
+        assert.equal('Please enter a name or select a language!', input.errorMsg());
       
     })
  
     it('should show error message when language is not selected' , function(){
         let input = greetingOpp();
         input.errorMsg()
-        assert.equal('Please enter name!', input.errorMsg());
+        assert.equal('Please enter a name or select a language!', input.errorMsg());
       
     })
      

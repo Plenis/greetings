@@ -1,26 +1,26 @@
 function greetingOpp(nameList) {
     var greetedNames = nameList || {};
-    
+
 
     function greet(name, lang) {
-      var firstLetterUpperCase = name.toUpperCase();
-      var firstLetterUpper = name.toUpperCase() 
-        if(greetedNames[firstLetterUpper] === undefined){
+        var firstLetterUpperCase = name.toUpperCase().charAt(0) + name.slice(1);
+        var firstLetterUpper = name.toUpperCase();
+        if (greetedNames[firstLetterUpper] === undefined) {
             greetedNames[firstLetterUpper] = 1;
-        } else{
-            greetedNames[firstLetterUpper] ++;
+        } else {
+            greetedNames[firstLetterUpper]++;
         }
 
         if (lang === 'isiXhosa') {
-            return 'MOLO, ' + firstLetterUpperCase + "!" ;
+            return 'Molo, ' + firstLetterUpperCase + "!";
         }
 
         else if (lang === 'English') {
-            return 'HELLO, ' + firstLetterUpperCase + "!" ;
+            return 'Hello, ' + firstLetterUpperCase + "!";
         }
 
         else if (lang === 'Afrikaans') {
-            return 'AWE, ' + firstLetterUpperCase + "!" ;
+            return 'Awe, ' + firstLetterUpperCase + "!";
         }
         else {
             return "Please select language";
@@ -28,13 +28,8 @@ function greetingOpp(nameList) {
 
     };
 
-    function capitalize_Words(str)
-{
- return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-}
-
-    function nameCounter(){    
-       var greetedArray = Object.keys(greetedNames);
+    function nameCounter() {
+        var greetedArray = Object.keys(greetedNames);
         return greetedArray.length;
     }
 
@@ -43,15 +38,10 @@ function greetingOpp(nameList) {
         return greetedNames;
     }
 
-    function errorMsg(lang){
+    function errorMsg(lang) {
         var errmsg = name
-        if(errmsg === "" && lang !== false){
-            return "Please enter name!";
-        }
-
-        var noNameLang = 0;
-        if(noNameLang === "" && lang === false){
-            return "Please enter name and select language!"
+        if (errmsg === "" && lang !== false) {
+            return "Please enter a name or select a language!";
         }
     }
 
@@ -59,8 +49,7 @@ function greetingOpp(nameList) {
         greet,
         storedNames,
         nameCounter,
-        errorMsg,
-        capitalize_Words
-       
+        errorMsg
+
     }
 }

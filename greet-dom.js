@@ -29,14 +29,14 @@ function greetDisplayBtn() {
         var language = lang.value;
 
         if (Vname === "" && language !== false) {
-            message.innerHTML = "Please enter name!";
+            message.innerHTML = "Please enter a name!";
         }
         else {
             message.innerHTML = instance.greet(Vname, language);
         }
     }
     else {
-        message.innerHTML = "Please select language!";
+        message.innerHTML = "Please select a language!";
     }
 
     localStorage['name'] = JSON.stringify(instance.storedNames())
