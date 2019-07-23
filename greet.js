@@ -3,29 +3,35 @@ function greetingOpp(nameList) {
     
 
     function greet(name, lang) {
-      var firstLetterUpperCase = name.toUpperCase().charAt(0) + name.slice(1);
-        if(greetedNames[firstLetterUpperCase] === undefined){
-            greetedNames[firstLetterUpperCase] = 1;
+      var firstLetterUpperCase = name.toUpperCase();
+      var firstLetterUpper = name.toUpperCase() 
+        if(greetedNames[firstLetterUpper] === undefined){
+            greetedNames[firstLetterUpper] = 1;
         } else{
-            greetedNames[firstLetterUpperCase] ++;
+            greetedNames[firstLetterUpper] ++;
         }
 
         if (lang === 'isiXhosa') {
-            return 'Molo, ' + firstLetterUpperCase + "!" ;
+            return 'MOLO, ' + firstLetterUpperCase + "!" ;
         }
 
         else if (lang === 'English') {
-            return 'Hello, ' + firstLetterUpperCase + "!" ;
+            return 'HELLO, ' + firstLetterUpperCase + "!" ;
         }
 
         else if (lang === 'Afrikaans') {
-            return 'Awe, ' + firstLetterUpperCase + "!" ;
+            return 'AWE, ' + firstLetterUpperCase + "!" ;
         }
         else {
             return "Please select language";
         }
 
     };
+
+    function capitalize_Words(str)
+{
+ return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
 
     function nameCounter(){    
        var greetedArray = Object.keys(greetedNames);
@@ -53,7 +59,8 @@ function greetingOpp(nameList) {
         greet,
         storedNames,
         nameCounter,
-        errorMsg
+        errorMsg,
+        capitalize_Words
        
     }
 }
