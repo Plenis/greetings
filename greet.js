@@ -3,24 +3,26 @@ function greetingOpp(nameList) {
     
 
     function greet(name, lang) {
-      var nameName = name.toUpperCase().charAt(0) + name.slice(1);
-        if(greetedNames[nameName] === undefined){
-            greetedNames[nameName] = 0;
+      var firstLetterUpperCase = name.toUpperCase().charAt(0) + name.slice(1);
+        if(greetedNames[firstLetterUpperCase] === undefined){
+            greetedNames[firstLetterUpperCase] = 1;
+        } else{
+            greetedNames[firstLetterUpperCase] ++;
         }
 
         if (lang === 'isiXhosa') {
-            return 'Molo, ' + name + "!";
+            return 'Molo, ' + firstLetterUpperCase + "!" ;
         }
 
         else if (lang === 'English') {
-            return 'Hello, ' + name + "!";
+            return 'Hello, ' + firstLetterUpperCase + "!" ;
         }
 
         else if (lang === 'Afrikaans') {
-            return 'Awe, ' + name + "!";
+            return 'Awe, ' + firstLetterUpperCase + "!" ;
         }
         else {
-            return "please select language";
+            return "Please select language";
         }
 
     };
@@ -40,15 +42,18 @@ function greetingOpp(nameList) {
         if(errmsg === "" && lang !== false){
             return "Please enter name!";
         }
+
+        var noNameLang = 0;
+        if(noNameLang === "" && lang === false){
+            return "Please enter name and select language!"
+        }
     }
 
-   // console.log(greetedNames)
     return {
         greet,
         storedNames,
         nameCounter,
-        errorMsg,
-        //errorMessage
+        errorMsg
        
     }
 }
