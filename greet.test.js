@@ -31,11 +31,29 @@
         assert.equal('Please enter a name or select a language!', input.errorMsg());
       
     })
-     
-    it('should show the number of times each name has been greeted' , function(){
+
+    it('should show a counter of how many people have been greeted' , function(){
         let input = greetingOpp();
         input.greet('Sino')
         assert.equal(1, input.nameCounter());
-      
     })
+     
+    it('should show a counter of how many people have been greeted if 2 names are entered and greeted' , function(){
+        let input = greetingOpp();
+        input.greet('Sino')
+        input.greet('Lisa')
+        assert.equal(2, input.nameCounter());
+    })
+
+    it('should show a counter of how many people have been greeted if 6 names are entered greeted', function(){
+        let input = greetingOpp();
+        input.greet('Sino')
+        input.greet('Lisa')
+        input.greet('Phillip')
+        input.greet('Khanyo')
+        input.greet('Amahle')
+        input.greet('Sammy')
+        assert.equal(6, input.nameCounter());
+    })
+
 });
